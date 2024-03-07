@@ -26,9 +26,9 @@ const pokemonTypeColors: TypeColors = {
 
 export default function PokeDetails({ pokemon }: { pokemon: any }) {
   return (
-    <div className="self-start relative top-40 w-full">
+    <div className="self-start relative sm:top-40 top-28 w-full">
       <div className="flex flex-col gap-2 w-full">
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between items-center w-full">
           <h1 className="text-5xl font-bold capitalize">{pokemon.name}</h1>
           <span className="text-xl font-medium"># {pokemon.order}</span>
         </div>

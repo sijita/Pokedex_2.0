@@ -11,7 +11,7 @@ import {
 export default function PokeTab({ pokemon }: { pokemon: any }) {
   return (
     <Card className="w-full" shadow="none">
-      <CardHeader className="flex flex-col sm:flex-row items-center sm:items-start justify-around">
+      <CardHeader className="flex flex-col gap-6 sm:flex-row items-center sm:items-start justify-around">
         <div className="flex flex-col gap-2 items-center">
           <h5 className="text-lg font-medium">Height</h5>
           <span>{pokemon.height}m</span>

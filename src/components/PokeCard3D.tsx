@@ -73,7 +73,7 @@ export function PokeCard3D({ pokemon }: { pokemon: Pokemon }) {
             <CardItem translateZ={80} as="div">
               <h2 className="text-lg font-bold capitalize">{pokemon.name}</h2>
             </CardItem>
-            <CardItem translateZ={60} as="div">
+            <CardItem translateZ={70} as="div">
               <div className="flex gap-2">
                 {pokemon.types.map((type, i) => (
                   <Chip
