@@ -19,7 +19,9 @@ export function ThemeSwitcher() {
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
+      variant="shadow"
       isIconOnly
+      radius="sm"
     >
       {theme === "dark" ? <IconMoon /> : <IconSun />}
     </Button>

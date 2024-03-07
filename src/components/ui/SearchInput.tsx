@@ -26,9 +26,7 @@ export default function SearchInput() {
   return (
     <Input
       className="w-full"
-      classNames={{
-        input: "text-lg",
-      }}
+      variant="bordered"
       placeholder="Search by name..."
       startContent={<IconSearch size={20} />}
       size="sm"

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getPokemons } from "@/utils/actions";
 import { useInView } from "react-intersection-observer";
 import { Spinner } from "@nextui-org/react";
+import { PokeCard3D } from "./PokeCard3D";
 
 const NUMBER_OF_POKEMONS_TO_FETCH = 10;
 
@@ -42,7 +43,7 @@ export default function PokeList({
     <div className="flex flex-col gap-5 w-full">
       <div className="w-full grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pokemons.map((pokemon, i) => (
-          <PokeCard key={i} pokemon={pokemon} />
+          <PokeCard3D key={i} pokemon={pokemon} />
         ))}
       </div>
       <div ref={ref}>
