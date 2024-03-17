@@ -1,39 +1,63 @@
 "use client";
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { IconSearch } from "@tabler/icons-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React from "react";
-import { useDebouncedCallback } from "use-debounce";
-
-const WAIT_INTERVAL = 500;
+import { useState } from "react";
 
 export default function SearchInput() {
+  const [searchTerm, setSearchTerm] = useState("");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = useDebouncedCallback((term: string) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const params = new URLSearchParams(searchParams);
-    if (term) {
-      params.set("search", term);
+    if (searchTerm) {
+      params.set("search", searchTerm);
     } else {
       params.delete("search");
     }
 
     replace(`${pathname}?${params.toString()}`);
-  }, WAIT_INTERVAL);
+  };
+
+  const handleClear = () => {
+    setSearchTerm("");
+    const params = new URLSearchParams(searchParams);
+    params.delete("search");
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   return (
-    <Input
-      className="w-full"
-      variant="bordered"
-      placeholder="Search by name..."
-      startContent={<IconSearch size={20} />}
-      size="sm"
-      onChange={(e) => {
-        handleSearch(e.target.value);
-      }}
-      defaultValue={searchParams.get("search")?.toString()}
-    />
+    <form onSubmit={handleSearch} className="flex items-center w-full">
+      <Input
+        className="w-full"
+        variant="flat"
+        placeholder="Search by name..."
+        size="sm"
+        classNames={{
+          inputWrapper: "rounded-r-none",
+          mainWrapper: "rounded-r-none",
+        }}
+        isClearable
+        onClear={handleClear}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        // onChange={(e) => {
+        //   handleSearch(e.target.value);
+        // }}
+        // defaultValue={searchParams.get("search")?.toString()}
+      />
+      <Button
+        className="h-12 rounded-l-none"
+        type="submit"
+        variant="flat"
+        radius="sm"
+      >
+        Search
+        <IconSearch />
+      </Button>
+    </form>
   );
 }

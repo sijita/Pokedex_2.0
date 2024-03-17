@@ -30,26 +30,26 @@ const pokemonTypeColors: TypeColors = {
 };
 
 const pokemonTypeShadows: TypeColors = {
-  grass: "dark:hover:shadow-green-500/[0.1]",
-  water: "dark:hover:shadow-blue-500/[0.1]",
-  fire: "dark:hover:shadow-red-500/[0.1]",
-  bug: "dark:hover:shadow-lime-500/[0.1]",
-  normal: "dark:hover:shadow-gray-500/[0.1]",
-  poison: "dark:hover:shadow-purple-500/[0.1]",
-  electric: "dark:hover:shadow-yellow-500/[0.1]",
-  ground: "dark:hover:shadow-amber-700/[0.1]",
-  fairy: "dark:hover:shadow-pink-500/[0.1]",
-  fighting: "dark:hover:shadow-orange-500/[0.1]",
-  psychic: "dark:hover:shadow-rose-500/[0.1]",
-  rock: "dark:hover:shadow-stone-500/[0.1]",
-  ghost: "dark:hover:shadow-indigo-500/[0.1]",
-  ice: "dark:hover:shadow-cyan-300/[0.1]",
-  dragon: "dark:hover:shadow-teal-500/[0.1]",
-  steel: "dark:hover:shadow-neutral-500/[0.1]",
-  flying: "dark:hover:shadow-sky-500/[0.1]",
-  dark: "dark:hover:shadow-zinc-950/[0.1]",
-  shadow: "dark:hover:shadow-slate-500/[0.1]",
-  default: "dark:hover:shadow-neutral-50/[0.1]",
+  grass: "hover:shadow-green-500/[0.2]",
+  water: "hover:shadow-blue-500/[0.2]",
+  fire: "hover:shadow-red-500/[0.2]",
+  bug: "hover:shadow-lime-500/[0.2]",
+  normal: "hover:shadow-gray-500/[0.2]",
+  poison: "hover:shadow-purple-500/[0.2]",
+  electric: "hover:shadow-yellow-500/[0.2]",
+  ground: "hover:shadow-amber-700/[0.2]",
+  fairy: "hover:shadow-pink-500/[0.2]",
+  fighting: "hover:shadow-orange-500/[0.2]",
+  psychic: "hover:shadow-rose-500/[0.2]",
+  rock: "hover:shadow-stone-500/[0.2]",
+  ghost: "hover:shadow-indigo-500/[0.2]",
+  ice: "hover:shadow-cyan-300/[0.2]",
+  dragon: "hover:shadow-teal-500/[0.2]",
+  steel: "hover:shadow-neutral-500/[0.2]",
+  flying: "hover:shadow-sky-500/[0.2]",
+  dark: "hover:shadow-zinc-950/[0.2]",
+  shadow: "hover:shadow-slate-500/[0.2]",
+  default: "hover:shadow-neutral-50/[0.2]",
 };
 
 export function PokeCard3D({ pokemon }: { pokemon: Pokemon }) {
@@ -57,9 +57,9 @@ export function PokeCard3D({ pokemon }: { pokemon: Pokemon }) {
     <Link href={`/pokemon/${pokemon.name}`}>
       <CardContainer className="inter-var w-full">
         <CardBody
-          className={`bg-gray-50 relative group/card  dark:hover:shadow-2xl ${
+          className={`bg-gray-50 relative group/card hover:shadow-2xl ${
             pokemonTypeShadows[pokemon.types[0].type.name]
-          } dark:bg-black/90 dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border flex flex-col gap-5`}
+          } dark:bg-black/90 dark:border-white/[0.1] border-black/[0.1] w-full h-auto rounded-xl p-6 border flex flex-col gap-5`}
         >
           <CardItem translateZ="100" className="flex justify-center">
             <Avatar
